@@ -1,0 +1,22 @@
+<h3 class="section-header"> ABOUT ME</h3>
+<p class="bio">
+   I am currently working towards my bachelor's degree at the University of California, Irvine. 
+    My major is Computer Science specializing in Architecture and Embedded Systems with a minor in Informatics.
+</p>
+<p class="bio">
+    My favorite thing about computer science is building things - whether it's applications, websites, IoT devices, or video games.
+    Outside of work and school, I enjoy in playing guitar, learning new skills,
+    and painting. 
+</p>
+
+<h3>PROJECTS</h3>
+<app-card
+    *ngFor="let proj of projects"
+    [title]="proj.title"
+    [description]="proj.description"
+    [technology]="proj.technology"
+    [webappUrl] = "proj.webappUrl"
+    [blogUrl] ="proj.blogUrl"
+    [screenShot]="proj.screenShot"
+></app-card>
+

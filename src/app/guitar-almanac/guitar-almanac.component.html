@@ -1,0 +1,85 @@
+<h3>Guitar Scale Almanac - <a  href="https://github.com/Fgomezcode/Guitar_Scales">github repository</a></h3>
+
+<h5>Goal.</h5>
+<p>
+    I set out to create a program that will generate guitar scales, chord progressions and keys. 
+    The goal was to abstract away music theory, and notation and be flexible in terms of tuning and string count. 
+    By not limiting the program to standard guitar tunings and string count the information generated applies to a variety of stringed instruments.
+    <br>
+    <br>
+    Aside from generating keys and scales, I wanted to make the program accessible to users of all skill levels. 
+    This is done by displaying the scales in tablature on a 'fretboard' as well as including 3 notations for chord progressions.    
+</p>
+
+<img class="ui centered  image" src="assets/images/GuitarAlmanac/guitaralmanac_prompt.png">
+
+<br>
+
+<h5>Hurdles.</h5>
+    <p>
+        One of the first hurdles was figuring out what information I needed up front and what could be done programmatically.
+         The original solution was to create all 41 scales, fretboards and progressions for each of the 12 chromatic notes, and store them in a local JSON file.
+          Using the root note provided by the user the corresponding object would be accessed and its data would be displayed.
+           However, with such a large file it would become difficult to make corrections or modifications without making more work for myself.
+        <br>
+        <br>
+
+        The solution I ended up with split the original idea into a few parts. The first was to limit the data generated to the root note.
+         Since we are only generating information for one note, we only have to create one list of notes and simply manipulate which notes get displayed.
+          Secondly, the information stored locally is reduced to 'step notation', name and chord notation. 
+        Instead of worrying about managing a library of notes and scales I now only had to manage a sequence of letters.
+        <br>
+        <br>
+
+        This change in approach essentially changed the program I was writing. Rather than focus on data management I was now focused on writing algorithms that would translate step notation.
+        <br>
+        <br>
+        Here's a brief example using the root note of C.
+    </p>
+        <ul>
+            <li>
+                Chromatic scale starting at C: C - C# - D - D# - E - F - F# - G- G# - A - A# - B - C
+            </li>
+            <li>
+                Major scale steps: W - W - H - W - W - W – H <br>
+                Each step(H) is a semi-tone, a whole step(W) is 2 semi-tones <br>
+                (tonal values: 2,2,1,2,2,2,1)
+            </li>
+            <li>
+                C + W = D, D + W = E, E + H = F, F + W = G, G + W = A, A + W = B, B + H = C
+            </li>
+            <li>
+               Final Scale = CDEFGABC
+            </li>
+        </ul>
+        
+    <p>
+        Using a root note and tonal values of step notation we can quickly index through a list of notes and generate the desired scales in a given key. 
+        Once this list is generated we can then use the chord notation to pull necessary notes for each chord progression. A basic 1 - 4 - 5 progression in zero index is 0 - 3 - 4.
+    </p>
+<img class="ui centered  image" src="assets/images/GuitarAlmanac/guitaralmanac_displayed.png">
+
+<h5>What I learned.</h5>
+    <p>
+        Ultimately I traded off data management for an increase in runtime operations. 
+        But, because I was able to reduce the actual amount of work required to generate the desired information the project became lighter and more flexible.
+        <br>
+        <br>
+        But why would I choose this trade-off?
+        <br><br>
+
+        There are a finite number of combinations when it comes to creating scales.
+        Since we are limiting the program to one root note, scales to a length of 8 notes, and working in 2 semi-tones there are at most 256 possible scales to generate per root note and a total of 3072 scales for all 12 chromatic notes. 
+        If we include scales ranging from 1 note to 8 notes there are 510 scales per root note and 6120 possible scales in total. 
+        Of course, not all of the scales will sound good or make sense musically. 
+        In its current iteration, the program can generate all 6120 scales in ~2 seconds, and the maximum of 256 scales per root note in .14 seconds.
+        <br>
+        <br>
+
+        Dealing with that much information is impractical, it makes error-checking difficult and limits the scope of the program. 
+        If we wanted to change the tuning or number of strings we would have to hardcode every possible iteration of all 6120 scales. 
+        Each minor change makes the scale 'library' grow exponentially. 
+        By programmatically generating the data we can create scales in any tuning for instruments with any number of strings. 
+        We can generate as many or as few scales as we want with minimal information. 
+        We can quickly check for errors and making corrections to a few functions is faster and easier than making changes to individual entries.
+    </p>
