@@ -93,6 +93,97 @@
           }
         }
       }
+    },
+    "BrainBusters": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/brain-busters",
+      "sourceRoot": "projects/brain-busters/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/brain-busters",
+            "index": "projects/brain-busters/src/index.html",
+            "main": "projects/brain-busters/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/brain-busters/tsconfig.app.json",
+            "assets": [
+              "projects/brain-busters/src/favicon.ico",
+              "projects/brain-busters/src/assets"
+            ],
+            "styles": [
+              "projects/brain-busters/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1500kb",
+                  "maximumError": "3mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "BrainBusters:build:production"
+            },
+            "development": {
+              "browserTarget": "BrainBusters:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "BrainBusters:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/brain-busters/tsconfig.spec.json",
+            "assets": [
+              "projects/brain-busters/src/favicon.ico",
+              "projects/brain-busters/src/assets"
+            ],
+            "styles": [
+              "projects/brain-busters/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }

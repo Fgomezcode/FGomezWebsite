@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #aaaaaa;
+    font-family: vt323;
+    font-size: 32px;
+    color:#0f380f;
+}
+
+#quizHeader {
+    margin-top: 3%;
+    background-color: #b5d71f;
+    box-shadow:   -10px 0 0 0 black,
+    10px 0 0 0 black,
+    0 -10px 0 0 black,
+    0 10px 0 0 black;
+
+}
+
+
+
+#quizDisplay {
+    opacity: 90%;
+    margin-top: 10%;
+    background-color: #b5d71f;
+    box-shadow:   -10px 0 0 0 black,
+    10px 0 0 0 black,
+    0 -10px 0 0 black,
+    0 10px 0 0 black;
+
+}
+
+
+.gameButton {
+    margin: 5px;
+    background-color: #b92968;
+    box-shadow:   -4px 0 0 0 black,
+    4px 0 0 0 black,
+    0 -4px 0 0 black,
+    0 4px 0 0 black;
+}
+
+#insetShadow{
+    margin: -20px;
+    padding: 30px;
+    box-shadow: inset -5px -5px 10px 10px #306230;
+    box-shadow: inset 3px 3px 10px 10px #306230;
+}
+
+#bottom-buttons{
+    margin-top: 50px;
+}

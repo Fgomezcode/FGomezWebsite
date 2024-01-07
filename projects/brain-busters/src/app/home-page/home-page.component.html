@@ -1,0 +1,103 @@
+
+<div id="quizDisplay" class="container">
+  
+  <div id="insetShadow">
+    <app-ui></app-ui>
+
+
+      <div class="display" *ngIf="!showQuiz && !howToPlay" >
+        <div class="row">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">How many rounds?</span>
+            </div>
+            <input (keyup)="setUserRounds($event)" type="number" min="0" max="10" placeholder="10 Round Maximum." class="form-control" aria-label="Small" >
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="input-group mb-3">
+            <button (click)="getCategories()" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select Category</button>
+            <ul class="dropdown-menu">
+              <li (click)="displayCategory = cat.name; userCategory = cat.id" *ngFor="let cat of localCategories; let i = index ">
+                {{cat.name}}
+              </li>
+            </ul>
+            <input type="text" class="form-control" placeholder="{{displayCategory}}" aria-label="Text input with dropdown button" readonly>
+          </div>
+          
+        </div>             
+        
+        <div id="difficultyPrompt" class="row ">
+          
+          <div class="col-3">
+            DIFFICULTY:
+          </div>
+          <div class="col-3">
+            <div class="form-check form-check-inline">
+              <input (click)="setUserDifficulty(0)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">EASY</label>
+            </div>
+          </div>
+          
+          <div class="col-3">
+            <div class="form-check form-check-inline">
+              <input (click)="setUserDifficulty(1)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">MEDIUM</label>
+            </div>
+            
+          </div>
+          <div class="col-3">
+            <div class="form-check form-check-inline">
+              <input (click)="setUserDifficulty(2)" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+              <label class="form-check-label" for="inlineRadio3">HARD</label>
+            </div>
+            
+          </div>
+          
+        </div>
+
+      </div>
+
+      
+      <div *ngIf="showQuiz" class="container">
+        
+        <app-quiz [quizQuery]="quizQuestions"
+                  [rounds]="userRounds"
+                  [category]="displayCategory"
+                  [difficulty]="userDifficulty">
+        </app-quiz>
+        
+
+
+      </div>
+      
+      
+    </div>
+      
+    </div>
+
+
+    <div  id="bottom-buttons" class="container ">
+
+      <div *ngIf="showQuiz" class="row">
+        <button   class="gameButton" (click)="startQuiz() ">End Quiz</button>
+      </div>
+      
+      <div  *ngIf="!showQuiz" class="row">
+        <button class="gameButton" (click)="startQuiz()">{{quizButtonText}}</button>
+      </div>
+      <div class="row">
+        <button class="gameButton" (click)="showHelp()">{{howToText}}</button>
+        <app-gestures [showGestures]="howToPlay"></app-gestures>
+      </div>
+      
+    </div>
+    
+
+    
+    
+    
+    
+    
+    

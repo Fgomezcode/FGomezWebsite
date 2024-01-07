@@ -16,6 +16,14 @@ export class HomeComponent {
       blogUrl: "/#/guitaralmanac",
       screenShot: "assets/images/GuitarAlmanac/guitaralmanac_card.png"
     },
+    {
+      title:"Brain Busters",
+      description: "Trivia Quiz That Uses HandTracker.js For User Interaction",
+      technology: "Angular - JS/TS - HTML/CSS",
+      webappUrl: "https://fgomez.dev/brain-busters/",
+      blogUrl: "/#/triviaQuiz",
+      screenShot: "assets/images/BrainBusters/brainbusters_card.png"
+    },
 
   ]
 }

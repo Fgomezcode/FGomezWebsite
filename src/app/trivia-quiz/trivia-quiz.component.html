@@ -1,0 +1,39 @@
+<h3>Brain Busters - Trivia Game - <a href="https://github.com/uci-inf-133/a5-final-project-fgv31">github repository</a></h3>
+
+<h5>About This Project.</h5>
+<p>
+    This is my final project for Informatics - 133 at UC Irvine. The focus was on alternate means of user interaction, with hand tracking at the core of the project.
+    I decided to create a trivia application in order to use all of the topics that were covered over the quarter. Below you can see the various hand gestures that are used to interact with the application.
+    Aside from recognizing hand shapes, the application also tracks where each hand is in relation to the camera. This allows more flexibility when working with limited gestures.
+    <br>
+    <br>
+    <img class="ui centered image" style="width: 70%;" src="assets/images/BrainBusters/instructions.png">
+    
+    <br>
+    One of the topics I was excited about using was APIs. I chose to use the <a href="https://opentdb.com/api_config.php">Open Trivia Database</a> API to populate trivia questions and provide more customization.
+    The image below shows that users can set the number of rounds in a game, the overall difficulty, as well as select a topic. With this information, I am able to compose an API call and get a set of 
+    questions relating to the topic that was chosen.
+    <br>
+    <br>
+    <img class="ui centered image" style="width: 70%;" src="assets/images/BrainBusters/mainMenu.png">
+
+    <br>
+    <br>
+    
+    The second topic I wanted to explore was HTML/CSS. I wanted the application to be simple but still demonstrate a basic understanding of HTML/CSS/Bootstrap by replicating an original GameBoy.
+    The majority of the information is displayed inside the GameBoy 'screen', the buttons, background, and font colors match the GameBoy, and I also included 'Chiptune' style music in the background.
+    
+    <br>
+    <br>
+    Lastly, I focused on small quality of life aspects. Since I am using a free API, I wanted to make sure the calls were only made when necessary. 
+    When a user loads the application, I check their local storage for saved trivia categories. If there are no categories, the call is made, the data is stored locally, and the next time the user loads 
+    the application, there won't be an API call (if they haven't cleared their cookies).
+    <br>
+    <br>
+    Secondly, I added various pauses and visual feedback. The first pause is when a user clicks 'start quiz'; rather than quickly 
+    changing the contents of the screen, the button text changes - this lets users know their input was registered and that they should expect a response. This also gives the impression that there is more going on 
+    in the background and makes the game feel more fleshed out. Another area where I included feedback was above the camera - since there is no tactile information, users need to know if their input is being received. 
+    When there is a change in game state, it is displayed above the camera and below the question, which also means the user does not have to take their focus away from the most important part of the game. 
+    
+    <img class="ui centered image" style="width: 70%;" src="assets/images/BrainBusters/brainbusters_card.png">
+</p>

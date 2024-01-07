@@ -1,0 +1,67 @@
+
+
+
+<div id="gestureDisplay" *ngIf="showGestures">
+
+  
+    <div class="row">
+      
+      <div class="col-sm">
+        <p>SELECT</p>
+        <img class="gesture-img" [src]="closedHand" alt="">
+        <p>Make a closed hand while in a sector to lock in your answer.</p>
+      </div>
+  
+      <div class="col-sm">
+        <p>NAVIGATE</p>
+        <img class="gesture-img" [src]="openHand" alt="">
+        <p>Move your open hand to navigate between sectors.</p>
+      </div>
+  
+      <div class="col-sm">
+        <p>SHOW ANSWER</p>
+        <img class="gesture-img" [src]="openHand" alt="">
+        <img class="gesture-img" [src]="openHand" alt="">
+        <p>Two open hands will reveal the answer.</p>
+      </div>
+  
+      <div class="col-sm">
+        <p>SKIP QUESTION</p>
+        <img class="gesture-img" [src]="closedHand" alt="">
+        <img class="gesture-img" [src]="closedHand" alt="">
+        <p>Two closed hands will skip the question.</p>
+
+      </div>
+    </div>
+      <div class="row">
+        
+        <div class="col-sm">
+          <p>QUIT GAME</p>
+          <img class="gesture-img" [src]="pointingHand" alt="">
+          <img class="gesture-img" [src]="pointingHand" alt="">
+          <p>Two upward pointing hands will quit the game.</p>
+        </div>
+        
+        <div class="col-sm">
+        </div>
+        
+        <div class="col-sm">
+          <p>PLAY MUSIC</p>
+          <img class="gesture-img" [src]="closedHand" alt="">
+          <img class="gesture-img" [src]="pointingHand" alt="">
+          <p>One closed and one open hand will play the music if it is stopped.</p>
+        </div>
+        <div class="col-sm">
+        </div>
+        
+        <div class="col-sm">
+          <p>STOP MUSIC</p>
+          <img class="gesture-img" [src]="closedHand" alt="">
+          <img class="gesture-img" [src]="openHand" alt="">
+          <p>One closed and one open hand will pause the music.</p>
+
+        </div>        
+      </div>
+ 
+    
+  </div>

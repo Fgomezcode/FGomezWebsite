@@ -8,6 +8,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CardComponent } from './card/card.component';
 import { ResumeComponent } from './resume/resume.component';
 import { GuitarAlmanacComponent } from './guitar-almanac/guitar-almanac.component';
+import { TriviaQuizComponent } from './trivia-quiz/trivia-quiz.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { GuitarAlmanacComponent } from './guitar-almanac/guitar-almanac.componen
     NotfoundComponent,
     CardComponent,
     GuitarAlmanacComponent,
+    TriviaQuizComponent,
   ],
   imports: [
     BrowserModule,

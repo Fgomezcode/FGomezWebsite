@@ -1,0 +1,52 @@
+<div id="questionDisplay" class="container">
+
+
+    <div class="row">
+      <div class="col-2">
+        <p>SCORE:  {{currentScore}}</p> 
+      </div>
+
+      <div class="col-8">
+       <p>Question #{{currentRound}}.</p>
+      </div>
+
+      <div class="col-2">
+      
+      </div>
+    </div>
+
+
+    <div class="row">
+      <p>{{question}}</p>
+    </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <p>A: {{allAnswers[0]}}</p>
+          <p>C: {{allAnswers[2]}}</p>
+        </div>
+        <div class="col-sm">
+          <div><p>{{informationForUser}}</p></div>
+          <div [innerHTML]="gesture"> </div>
+          <app-handtracker (onPrediction)="prediction($event); processGesture()   "></app-handtracker>
+        </div>
+        <div class="col-sm">
+          <p>B: {{allAnswers[1]}}</p>
+          <p>D: {{allAnswers[3]}}</p>
+        </div>
+      </div>
+
+
+      <div class="row">
+
+        
+
+      </div>
+
+
+      <div class="row">
+        
+      </div>
+
+      
+    </div>
